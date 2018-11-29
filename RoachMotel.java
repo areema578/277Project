@@ -31,7 +31,14 @@ public class RoachMotel { //simple locking
 	
 	public void checkIn(RoachColony colony, String roomType, ArrayList<Amenities> amenities) {
 		int roomNum = roomNumAv.get(0);
-		MotelRoom room = new MotelRoom(colony, roomType, amenities, roomNum);
+		if(roomType.equals("Regular")) {
+			MotelRoom room = new RegularRoom(colony, roomType, amenities, roomNum);
+		}
+		else if(roomType.equals("Deluxe")) {
+			MotelRoom room = new DeluxeRoom(colony, roomType, amenities, roomNum);
+		}else { //suite
+			MotelRoom room = new SuiteRoom(colony, roomType, amenities, roomNum);
+		}
 		rooms.add(room);
 		roomNumAv.remove(0);
 		//cost per night (decorator for amenities)
