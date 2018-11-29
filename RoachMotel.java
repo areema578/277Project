@@ -29,21 +29,16 @@ public class RoachMotel { //simple locking
 		roomNumAv.add(105);
 	}
 	
-	public void checkIn(RoachColony colony, String roomType, ArrayList<String> amenities) {
+	public void checkIn(RoachColony colony, String roomType, ArrayList<Amenities> amenities) {
 		int roomNum = roomNumAv.get(0);
-		rooms.add(new MotelRoom(colony, roomType, amenities, roomNum, costPerNight));
+		MotelRoom room = new MotelRoom(colony, roomType, amenities, roomNum);
+		rooms.add(room);
 		roomNumAv.remove(0);
 		//cost per night (decorator for amenities)
-		System.out.println("Amenities: " + amenities + "\nCost per night: ");
+		System.out.println("Amenities: " + amenities + "\nCost per night: $" + room.getCost());
 	}
 	
 	public String toString() {
-		/*
-		motel: {}available: [101, 102, 103, 104, 105]
-		available Rooms: [101, 102, 103, 104, 105]
-		in set amenities: [foodbar, spa, refillbar, shower]
-		Suite, FoodBar, Spa, RefillBar, Shower 160.0
-		 */
 		return "Available Rooms: " + roomNumAv;
 	}
 	
