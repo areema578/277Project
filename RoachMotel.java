@@ -36,7 +36,8 @@ public class RoachMotel { //simple locking
 		}
 		else if(roomType.equals("Deluxe")) {
 			MotelRoom room = new DeluxeRoom(colony, roomType, amenities, roomNum);
-		}else { //suite
+		}
+		else { //suite
 			MotelRoom room = new SuiteRoom(colony, roomType, amenities, roomNum);
 		}
 		rooms.add(room);
