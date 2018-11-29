@@ -1,4 +1,3 @@
-package patternsProject;
 
 public abstract class MotelRoom {
 	

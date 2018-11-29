@@ -1,5 +1,3 @@
-package patternsProject;
-
 import java.util.ArrayList;
 
 public class Tester {

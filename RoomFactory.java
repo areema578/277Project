@@ -1,5 +1,3 @@
-package patternsProject;
-
 public class RoomFactory {
 	
 	public MotelRoom createRoom(String type) {

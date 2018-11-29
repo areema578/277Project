@@ -1,5 +1,3 @@
-package patternsProject;
-
 public class RoachColony {
 
 	String name;

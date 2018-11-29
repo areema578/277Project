@@ -1,4 +1,3 @@
-package patternsProject;
 
 //random change
 
