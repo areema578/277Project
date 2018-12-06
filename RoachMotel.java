@@ -21,8 +21,9 @@ public class RoachMotel implements Subject { //simple locking
 		rooms = new HashMap<Integer, MotelRoom>(); //rooms taken list
 		capacity = 5;
 		
-		//????????
+		//???????? creation of waitlist ????????????
 		waitList = Waitlist.getList();
+		addObserver(waitList);
 		waitList.setSubject(this);
 	}
 	
