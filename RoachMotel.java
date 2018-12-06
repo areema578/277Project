@@ -71,11 +71,9 @@ public class RoachMotel implements Subject { //simple locking
 		//if they dont equal then vacancy is true, available rooms
 	}
 	
-	/*
-	public MotelRoom getRoom(int key) {
+	public MotelRoom getRoom(int key) { //tester to get the room
 		return rooms.get(key);
 	}
-	*/
 	
 	public void checkOut(int roomNumber) {
 		rooms.remove(roomNumber);
