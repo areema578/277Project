@@ -11,7 +11,7 @@ public class Waitlist implements Observer {
     private Queue<MotelRoom> waitlist;
 
     private Waitlist() {
-        waitlist = new Queue<>();
+        waitlist = new Queue<>(); //the actual waitlist (FIFO)
     }
 
     /**
@@ -34,7 +34,9 @@ public class Waitlist implements Observer {
      */
     @Override
     public void update() {
-        if (motel.getVacancy() && waitlist.size() > 0) motel.admitRoom(waitlist.remove());
+        if (motel.getVacancy() && waitlist.size() > 0) {
+        	motel.checkIn(waitlist.remove());
+        }
     }
 
     /**

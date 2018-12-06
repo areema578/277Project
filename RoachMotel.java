@@ -15,10 +15,10 @@ public class RoachMotel implements Subject { //simple locking
 	private int capacity;
 
 	private RoachMotel() {
-		observers = new ArrayList<Observer>();
+		observers = new ArrayList<Observer>(); //list of observers
 		vacancy = true;
-		roomNumAv = new ArrayList<Integer>();
-		rooms = new HashMap<Integer, MotelRoom>();
+		roomNumAv = new ArrayList<Integer>(); //just room numbers
+		rooms = new HashMap<Integer, MotelRoom>(); //rooms taken list
 		capacity = 5;
 		
 		//????????
@@ -28,7 +28,7 @@ public class RoachMotel implements Subject { //simple locking
 	
 	private static RoachMotel uniqueInstance;
 	
-	public static RoachMotel getInstance() {
+	public static RoachMotel getInstance() { //singleton idea
 		
 		synchronized(RoachMotel.class) {
 			if(uniqueInstance == null) {
@@ -38,7 +38,7 @@ public class RoachMotel implements Subject { //simple locking
 		return uniqueInstance;
 	}
 	
-	public void createRooms() {
+	public void createRooms() { //just to create the room numbers
 		roomNumAv.add(101);
 		roomNumAv.add(102);
 		roomNumAv.add(103);
@@ -56,17 +56,18 @@ public class RoachMotel implements Subject { //simple locking
 //			MotelRoom room = new SuiteRoom(colony, roomType, amenities, roomNum);
 //		}
 		if(vacancy) {
-			MotelRoom room = roomFactory.createRoom(roomType);
+			MotelRoom room = roomFactory.createRoom(roomType); //create the rooms based on input
 			rooms.put(roomNumAv.get(0), room);
 			roomNumAv.remove(0);
-			capacity--;
 			//cost per night (decorator for amenities)
 			System.out.println("Amenities: " + amenities + "\nCost per night: $" + room.getACost());
 		}
 		else {
-			waitList.add(room);
+			waitList.add(room); //????
 		}
-		setVacancy(rooms.size() != capacity);
+		setVacancy(rooms.size() != capacity); //checks if the number of rooms taken equals capacity
+		//if they equal then vacancy is false
+		//if they dont equal then vacancy is true, available rooms
 	}
 	
 	/*
@@ -77,7 +78,6 @@ public class RoachMotel implements Subject { //simple locking
 	
 	public void checkOut(int roomNumber) {
 		rooms.remove(roomNumber);
-		capacity++;
 		setVacancy(rooms.size() != capacity);
 	}
 	
@@ -113,7 +113,7 @@ public class RoachMotel implements Subject { //simple locking
 			return;
 		}
 		temp = new ArrayList<>(observers);
-		this.updated = false;
+		this.updated = false; //marking if it is updated/changed
 		for(Observer observer : temp) {
 			observer.update();
 		}
