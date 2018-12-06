@@ -1,6 +1,6 @@
 package patternsProject;
 
-public class FoodBar extends RoomDecorator{
+public class FoodBar extends Amenity{
 
 	public FoodBar(MotelRoom motel) {
 		super(motel);
