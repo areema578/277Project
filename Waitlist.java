@@ -25,8 +25,8 @@ public class Waitlist implements Observer {
     /**
      * Adds a RoachColony to the WaitList
      */
-    public void add(MotelRoom in) {
-        waitlist.add(in);
+    public void add(MotelRoom room) {
+        waitlist.add(room);
     }
 
     /**
