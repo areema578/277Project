@@ -10,6 +10,12 @@ public class Shower extends Amenity{
 	}
 
 	
+	public String getDescription()
+	{
+		return motel.getDescription() + "Shower";
+	}
+	
+	
 	public double getACost()
 	{
 		return super.getACost();

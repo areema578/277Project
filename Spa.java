@@ -9,6 +9,10 @@ public class Spa extends Amenity{
 		// TODO Auto-generated constructor stub
 	}
 
+	public String getDescription()
+	{
+		return motel.getDescription() + "Spa";
+	}
 	
 	public double getACost()
 	{

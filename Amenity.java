@@ -14,7 +14,9 @@ public abstract class Amenity extends MotelRoom {
 	
 	public double cost;
 	
-	public String discription;
+	public String description = "unknown amenity";
+	
+	public abstract String getDescription();
 	
 	public double getACost()
 	{

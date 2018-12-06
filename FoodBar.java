@@ -9,6 +9,10 @@ public class FoodBar extends Amenity{
 		// TODO Auto-generated constructor stub
 	}
 
+	public String getDescription()
+	{
+		return motel.getDescription() + "Food Bar";
+	}
 	
 	public double getACost()
 	{

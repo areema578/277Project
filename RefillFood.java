@@ -8,7 +8,11 @@ public class RefillFood extends Amenity{
 		cost = 5.0;
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public String getDescription()
+	{
+		return motel.getDescription() + "Food Bar Refill";
+	}
 	
 	public double getACost()
 	{
