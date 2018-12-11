@@ -37,6 +37,11 @@ public class Tester {
         
         rMotel.sprayRoom(colony2);
         
+        colony1.throwParty();
+        colony1.throwParty();
+        colony1.throwParty();
+
+        
 
         
 //        rMotel.checkIn(colony6, "Regular", amenities);
