@@ -1,6 +1,7 @@
 package patternsProject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RoachMotel implements Subject { //simple locking
 	private ArrayList<Observer> observers;
@@ -62,6 +63,10 @@ public class RoachMotel implements Subject { //simple locking
 			roomNumAv.remove(0);
 			//cost per night (decorator for amenities)
 			System.out.println("Amenities: " + amenities + "\nCost per night: $" + room.getACost());
+			
+			if( roomNumAv.size() == 0) {
+				vacancy = false;
+			}
 		}
 		else {
 			waitList.add(room); //????
