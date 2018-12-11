@@ -6,11 +6,11 @@ public class RoomFactory {
 		MotelRoom room = null;
 		
 		if(type.equals("regular")){
-			room = new RegularRoom();
+			room = new RegularRoom(null, type, null, 0);
 		}else if (type.equals("deluxe")) {
-			room = new DeluxeRoom();
+			room = new DeluxeRoom(null, type, null, 0);
 		}else if (type.equals("suite")) {
-			room = new SuiteRoom();
+			room = new SuiteRoom(null, type, null, 0);
 		}
 		return room;
 	}
