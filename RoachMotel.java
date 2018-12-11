@@ -48,7 +48,7 @@ public class RoachMotel implements Subject { //simple locking
 		roomNumAv.add(105);
 	}
 	
-	public void checkIn(RoachColony colony, String roomType, ArrayList<Amenity> amenities) {
+	public void checkIn(RoachColony colony, String roomType, ArrayList<String> amenities[i].equals) {
 //		if(roomType.equals("Regular")) {
 //			MotelRoom room = new RegularRoom(colony, roomType, amenities, roomNum);
 //		}
@@ -63,13 +63,27 @@ public class RoachMotel implements Subject { //simple locking
 			roomNumAv.remove(0);
 			//cost per night (decorator for amenities)
 			System.out.println("Amenities: " + amenities + "\nCost per night: $" + room.getACost());
-			
+			for(int i = 0; i < amenities.size(); i++) {
+				if(amenities[i].equals("Shower")) {
+					newRoom = new Shower(newRoom);
+				}
+				else if(amenities[i].equals("Spa")) {
+					newRoom = new Spa(newRoom);
+				}
+				else if(amenities[i].equals("FoodBar")) {
+					newRoom = new FoodBar(newRoom);
+				}
+				else if(amenities[i].equals("Refill")) {
+					newRoom = new Refill(newRoom);
+				}
+			}
 			if( roomNumAv.size() == 0) {
 				vacancy = false;
 			}
 		}
 		else {
-			waitList.add(room); //????
+			System.out.println("Motel Rooms are booked, added "+ colony + "to waitlist" );
+			waitList.add(colony); //????
 		}
 		setVacancy(rooms.size() != capacity); //checks if the number of rooms taken equals capacity
 		//if they equal then vacancy is false
@@ -133,4 +147,8 @@ public class RoachMotel implements Subject { //simple locking
 		notifyObservers();
 	}
 	
+//	public void sprayRoom(MotelRoom rm) {
+//		System.out.println("Sprayed " + colony.getName() );
+//		if(colony.getAmenities())
+//	}
 }
