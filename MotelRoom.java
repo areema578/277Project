@@ -16,7 +16,7 @@ public abstract class MotelRoom {
 			int roomNumber) {
 		
 		this.roachColony = roachColony;
-		this.ammenities = ammenities; 
+		this.amenities = amenities; 
 		this.roomNumber = roomNumber;
 		
 	}
