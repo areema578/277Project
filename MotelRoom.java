@@ -12,7 +12,7 @@ public abstract class MotelRoom {
 	
 	
 	public MotelRoom(RoachColony roachColony, 
-			String type, ArrayList<Amenity> ammenities,
+			String type, ArrayList<Amenity> amenities,
 			int roomNumber) {
 		
 		this.roachColony = roachColony;
