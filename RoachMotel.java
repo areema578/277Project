@@ -150,14 +150,14 @@ public class RoachMotel implements Subject { //simple locking
 	public void sprayRoom(RoachColony colony) {
 		int pop = colony.getPopulation();
 		System.out.println("Sprayed " + colony.getName() );
-		if(ColonyRooms.get(colony).description.contains("Shower")) {
+		if(ColonyRooms.get(colony).getDescription().contains("Shower")) {
 			pop -= pop * 0.25;
-			System.out.println("Room has a shower! Colony Population went from: " 
-			+ colony.getPopulation() + "to " + pop );
+			System.out.println("Room has a shower! Colony Population went from " 
+			+ colony.getPopulation() + " to " + pop );
 			colony.setPopulation(pop);
 		}else {
 			pop -= pop * 0.50;
-			System.out.println("Room does not have ashower! Colony Population went from: " 
+			System.out.println("Room does not have a shower! Colony Population went from: " 
 			+ colony.getPopulation() + "to " + pop );
 			colony.setPopulation(pop);
 		}
