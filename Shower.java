@@ -18,13 +18,16 @@ public class Shower extends Amenity{
 		
 		cost = 25.0;
 	}
-
+	
+	String description = "Shower";
+	
 	/**
 	 * Getter method for description string.
 	 */
 	public String getDescription()
 	{
-		return room.getDescription() + "Shower";
+		String temp =  room.getDescription() + this.description; 
+		return temp;
 	}
 	
 	/**
