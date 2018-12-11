@@ -35,13 +35,16 @@ public class Tester {
         amenities.remove(0);
         rMotel.checkIn(colony5, "Regular", amenities);
         
+        colony1.throwParty();
+        rMotel.sprayRoom(colony1);
+        
+        colony2.throwParty();
         rMotel.sprayRoom(colony2);
-        
-        colony1.throwParty();
-        colony1.throwParty();
-        colony1.throwParty();
 
-        
+
+//        rMotel.checkOut(101);
+//        
+//        System.out.println(rMotel);
 
         
 //        rMotel.checkIn(colony6, "Regular", amenities);

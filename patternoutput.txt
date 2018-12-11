@@ -1,0 +1,21 @@
+Available Rooms: [101, 102, 103, 104, 105]
+Amenities: [Foodbar, Spa]
+Cost per night: $100.0
+Amenities: [Foodbar, Spa, RefillFood, Shower]
+Cost per night: $75.0
+Amenities: [Foodbar, Spa, RefillFood]
+Cost per night: $50.0
+Amenities: [Foodbar, Spa]
+Cost per night: $50.0
+Amenities: [Spa]
+Cost per night: $50.0
+Sprayed 2nd Colony
+Room has a shower! Colony Population went from 10 to 7
+1st Colony is throwing a party
+Population of Roach Conlony: 7
+1st Colony is throwing a party
+Population of Roach Conlony: 10
+1st Colony is throwing a party
+Population of Roach Conlony: 15
+Sprayed 1st Colony
+Room does not have a shower! Colony Population went from: 15 to 7
