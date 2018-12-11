@@ -7,7 +7,7 @@ public abstract class MotelRoom {
 	private String type = "";
 	private double cost = 0;
 	private RoachColony roachColony;
-	private ArrayList<Amenity> ammenities = null;
+	private ArrayList<Amenity> amenities = null;
 	private int roomNumber = -1;
 	
 	
