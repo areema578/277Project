@@ -15,9 +15,6 @@ public abstract class RoomDecorator extends MotelRoom {
 		this.room = room;
 	}
 	
-//	MotelRoom motRoom = new AmenityDecorator(motRoom);
-	
-	
 	public double cost;
 	
 	public String description;

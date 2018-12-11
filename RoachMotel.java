@@ -17,7 +17,9 @@ public class RoachMotel implements Subject { //simple locking
 	private boolean vacancy;
 	private boolean updated;
 	private int capacity; 
-
+	/**
+	 * constructor for RoachMotel
+	 */
 	private RoachMotel() {
 		observers = new ArrayList<Observer>(); //list of observers
 		vacancy = true;
@@ -30,9 +32,14 @@ public class RoachMotel implements Subject { //simple locking
 		addObserver(waitList);
 		waitList.setSubject(this);
 	}
-	
+	/**
+	 * the unique instance of RoachMotel for singleton design pattern
+	 */
 	private static RoachMotel uniqueInstance;
-	
+	/**
+	 * singleton pattern for Roach motel
+	 * @return - the unique instance
+	 */
 	public static RoachMotel getInstance() { //singleton idea
 		
 		synchronized(RoachMotel.class) {
@@ -42,7 +49,9 @@ public class RoachMotel implements Subject { //simple locking
 		}
 		return uniqueInstance;
 	}
-	
+	/**
+	 * this method creates the rooms with their respective room numbers.
+	 */
 	public void createRooms() { //just to create the room numbers
 		roomNumAv.add(101);
 		roomNumAv.add(102);
@@ -50,7 +59,13 @@ public class RoachMotel implements Subject { //simple locking
 		roomNumAv.add(104);
 		roomNumAv.add(105);
 	}
-	
+	/**
+	 * this method first checks Motel for vacancy then
+	 *  checks in a roach colony into a room.
+	 * @param colony - the roach colony object 
+	 * @param roomType - room type as string
+	 * @param amenities - ammenity as an Arraylist of Strings
+	 */
 	public void checkIn(RoachColony colony, String roomType, ArrayList<String> amenities) {
 		if( roomNumAv.size() == 0) {
 			vacancy = false;
@@ -89,21 +104,34 @@ public class RoachMotel implements Subject { //simple locking
 		//if they equal then vacancy is false
 		//if they dont equal then vacancy is true, available rooms
 	}
-	
+	/**
+	 * getter for motel room
+	 * @param key - the key of the room
+	 * @return - the motel room object
+	 */
 	public MotelRoom getRoom(int key) { //tester to get the room
 		return rooms.get(key);
 	}
-	
+	/**
+	 * method to checkout the RoachColony
+	 * @param roomNumber - the roomNumber of the colony
+	 */
 	public void checkOut(int roomNumber) {
 		rooms.remove(roomNumber);
 		setVacancy(rooms.size() != capacity);
 	}
-	
+	/**
+	 * the to string method displaying all avaible rooms
+	 */
 	public String toString() {
 		return "Available Rooms: " + roomNumAv;
 	}
 
 	@Override
+	/**
+	 * this method adds  the observer to waiting list
+	 * @param observer object
+	 */
 	public void addObserver(Observer observer) {
 		if(!observers.contains(observer)) { //cant add the same
 			observers.add(observer);
@@ -111,6 +139,10 @@ public class RoachMotel implements Subject { //simple locking
 	}
 
 	@Override
+	/**
+	 * this method removes  the observers to waiting list
+	 * @param observer object
+	 */
 	public void removeObserver(Observer observer) {
 		int i = observers.indexOf(observer);
 		if( i >= 0) {
@@ -119,6 +151,9 @@ public class RoachMotel implements Subject { //simple locking
 	}
 
 	@Override
+	/**
+	 * this method notifys observers of waitlist
+	 */
 	public void notifyObservers() {
 		/*
 		for(int i = 0; i < observers.size(); i++) {
@@ -136,17 +171,27 @@ public class RoachMotel implements Subject { //simple locking
 			observer.update();
 		}
 	}
-	
+	/**
+	 * gets the Vacancy boolean
+	 * @return the vancancy as a boolean
+	 */
 	public boolean getVacancy() {
 		return vacancy;
 	}
 	
+	/**
+	 * sets the Vacancy
+	 * @param vacancy - the boolean
+	 */
 	public void setVacancy(boolean vacancy) {
 		this.vacancy = vacancy;
 		this.updated = true;
 		notifyObservers();
 	}
-	
+	/**
+	 * this method sprays the RoachColony room
+	 * @param colony- the roach colony to spray
+	 */
 	public void sprayRoom(RoachColony colony) {
 		int pop = colony.getPopulation();
 		System.out.println("Sprayed " + colony.getName() );
