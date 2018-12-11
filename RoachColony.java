@@ -1,3 +1,9 @@
+/**	 Scott Arima, Howard Chenn, Riley Haldeman, Joshua Hernandez
+     December 6, 2018
+     Purpose: Roach colony class which is able to throwParties, set population/growth rate
+     Inputs: name , population and growth rate.
+     Outputs: name , population and growth rate.
+*/
 package patternsProject;
 
 public class RoachColony implements Observer {
@@ -52,5 +58,7 @@ public class RoachColony implements Observer {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	
 	
 }

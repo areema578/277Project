@@ -162,4 +162,5 @@ public class RoachMotel implements Subject { //simple locking
 			colony.setPopulation(pop);
 		}
 	}
+	
 }

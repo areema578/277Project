@@ -1,12 +1,18 @@
+/**	 Scott Arima, Howard Chenn, Riley Haldeman, Joshua Hernandez
+     December 6, 2018
+     Purpose: Abstract Amenity Decorator to be attached to different rooms
+     Inputs: MotelRoom object that amenity is decorating.
+     Outputs: Amenity cost and description.
+*/
 package patternsProject;
 
 public abstract class RoomDecorator extends MotelRoom {
 	
-	protected MotelRoom motel;
+	protected MotelRoom room;
 	
 	public RoomDecorator()
 	{
-		this.motel = motel;
+		this.room = room;
 	}
 	
 //	MotelRoom motRoom = new AmenityDecorator(motRoom);
@@ -14,11 +20,16 @@ public abstract class RoomDecorator extends MotelRoom {
 	
 	public double cost;
 	
-	public String discription;
+	public String description;
 	
 	public double getACost()
 	{
 		return cost;
+	}
+	
+
+	public String toString() {
+		return description;
 	}
 	
 	

@@ -46,5 +46,11 @@ public class Waitlist implements Observer {
     public void setSubject(Subject subject) {
         this.motel = (RoachMotel)subject;
     }
+    
+
+	public String toString() {
+		return null;
+	}
+	
 
 }

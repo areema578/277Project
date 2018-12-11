@@ -37,6 +37,9 @@ public class Spa extends Amenity{
 		return room.getcost() + cost;
 	}
 	
+	public String toString() {
+		return null;
+	}
 	
 
 }

@@ -49,5 +49,9 @@ public abstract class Amenity extends MotelRoom {
 		return cost;
 	}
 	
+
+	public String toString() {
+		return null;
+	}
 	
 }

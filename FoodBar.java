@@ -44,4 +44,8 @@ public class FoodBar extends Amenity{
 	
 	
 
+	public String toString() {
+		return null;
+	}
+	
 }

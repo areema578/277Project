@@ -17,5 +17,9 @@ public class RoomFactory {
 		
 		return room;
 	}
+	
+	public String toString() {
+		return null;
+	}
 
 }

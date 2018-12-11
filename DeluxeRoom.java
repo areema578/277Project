@@ -25,5 +25,10 @@ public class DeluxeRoom extends MotelRoom {
 		return cost;
 	}
 	
+
+	public String toString() {
+		return null;
+	}
+	
 	
 }

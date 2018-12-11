@@ -1,7 +1,5 @@
 package patternsProject;
 
-import java.util.ArrayList;
-
 public class SuiteRoom extends MotelRoom{
 	private double cost;
 	
@@ -18,4 +16,10 @@ public class SuiteRoom extends MotelRoom{
 	public double getcost() {
 		return cost;
 	}
+	
+
+	public String toString() {
+		return null;
+	}
+	
 }

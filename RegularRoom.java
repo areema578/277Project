@@ -1,3 +1,10 @@
+
+/**	 Scott Arima, Howard Chenn, Riley Haldeman, Joshua Hernandez
+     December 6, 2018
+     Purpose: Regular room that extends MotelRoomClass
+     Inputs: description and cost per night.
+     Outputs: description and cost of room.
+*/
 package patternsProject;
 
 public class RegularRoom extends MotelRoom{
@@ -17,4 +24,10 @@ public class RegularRoom extends MotelRoom{
 	public double getcost() {
 		return cost;
 	}
+	
+
+	public String toString() {
+		return null;
+	}
+	
 }

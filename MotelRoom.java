@@ -1,4 +1,3 @@
-
 /**	 Scott Arima, Howard Chenn, Riley Haldeman, Joshua Hernandez
      December 6, 2018
      Purpose: Abstract motel room class.
@@ -18,5 +17,11 @@ public abstract class MotelRoom {
 	}
 
 	public abstract double getcost();
+	
+
+	public String toString() {
+		return null;
+	}
+	
 	
 }

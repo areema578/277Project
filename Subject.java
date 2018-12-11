@@ -6,4 +6,7 @@ public interface Subject {
 	public void removeObserver(Observer observer);
 	public void notifyObservers();
 	
+
+	
+	
 }
