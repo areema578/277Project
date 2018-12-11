@@ -1,7 +1,23 @@
+package patternsProject;
 
-//random change
 
 public class DeluxeRoom extends MotelRoom {
 	
-	private static double cost = 75;
+	private double cost;
+	
+	public DeluxeRoom() {
+		description = "Deluxe Room";
+		cost = 75;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	@Override
+	public double getcost() {
+		return cost;
+	}
+	
+	
 }

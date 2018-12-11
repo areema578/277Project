@@ -1,7 +1,14 @@
+package patternsProject;
+
 
 public abstract class MotelRoom {
 	
-	private String type;
-	private double cost;
+	protected String description;
+	
+	public String getDescription() {
+		return description;
+	}
 
+	public abstract double getcost();
+	
 }
