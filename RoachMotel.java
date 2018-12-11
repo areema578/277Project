@@ -67,17 +67,13 @@ public class RoachMotel implements Subject { //simple locking
 	 * @param amenities - ammenity as an Arraylist of Strings
 	 */
 	public void checkIn(RoachColony colony, String roomType, ArrayList<String> amenities) {
-		if( roomNumAv.size() == 0) {
-			vacancy = false;
-		}
-		
+		MotelRoom motelRoom = roomFactory.createRoom(roomType); //create the rooms based on input
 		if(vacancy) {
 			
-			MotelRoom motelRoom = roomFactory.createRoom(roomType); //create the rooms based on input
 			rooms.put(roomNumAv.get(0), motelRoom);
 			roomNumAv.remove(0);
 			//cost per night (decorator for amenities)
-			System.out.println("Amenities: " + amenities + "\nCost per night: $" + motelRoom.getcost());
+			System.out.println(colony.getName() + ":\nAmenities: " + amenities + "\nCost per night: $" + motelRoom.getcost());
 			
 			//adding ammenities to room description
 			for(int i = 0; i < amenities.size(); i++) {
@@ -98,12 +94,28 @@ public class RoachMotel implements Subject { //simple locking
 		} else {
 			
 			System.out.println("Motel Rooms are booked, added "+ colony.getName() + " to waitlist" );
-			waitList.add(colony); //????
+			waitList.waitListAdd(motelRoom);
 		}
-		setVacancy(rooms.size() != capacity); //checks if the number of rooms taken equals capacity
+		if(rooms.size() == capacity) { //checks if the number of rooms taken equals capacity
+			setVacancy(false);
+		}
 		//if they equal then vacancy is false
 		//if they dont equal then vacancy is true, available rooms
 	}
+	
+	
+	public void admit(MotelRoom room) {
+		if(vacancy) {
+			rooms.put(rooms.size(), room);
+		}
+		else {
+			waitList.waitListAdd(room);
+		}
+		if(rooms.size() == capacity) {
+			setVacancy(false);
+		}
+	}
+	
 	/**
 	 * getter for motel room
 	 * @param key - the key of the room
@@ -117,11 +129,13 @@ public class RoachMotel implements Subject { //simple locking
 	 * @param roomNumber - the roomNumber of the colony
 	 */
 	public void checkOut(int roomNumber) {
+		System.out.println("Room " + roomNumber + " checked out");
 		rooms.remove(roomNumber);
-		setVacancy(rooms.size() != capacity);
+		roomNumAv.add(roomNumber);
+		vacancy = true;
 	}
 	/**
-	 * the to string method displaying all avaible rooms
+	 * the to string method displaying all available rooms
 	 */
 	public String toString() {
 		return "Available Rooms: " + roomNumAv;

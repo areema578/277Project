@@ -10,7 +10,7 @@ package patternsProject;
 
 public abstract class MotelRoom {
 	
-	protected String description;
+	protected String description = "";
 	
 	public String getDescription() {
 		return description;

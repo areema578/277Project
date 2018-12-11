@@ -42,24 +42,14 @@ public abstract class Amenity extends MotelRoom {
 	
 	/**
 	 * getter method for amenity cost
-	 * @return cost
+	 * @return
 	 */
 	public double getACost()
 	{
 		return cost;
 	}
 	
-	/**
-	 * getter method for amenity cost
-	 * @return cost
-	 */
-	public double getcost()
-	{
-		return cost;
-		
-	}
-	
-	@Override
+
 	public String toString() {
 		return null;
 	}

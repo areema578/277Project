@@ -1,5 +1,6 @@
 package patternsProject;
 
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Waitlist implements Observer {
@@ -8,35 +9,42 @@ public class Waitlist implements Observer {
 
     private static RoachMotel motel;
 
-    private Queue<RoachColony> waitlist;
+    private Queue<MotelRoom> waitlist;
 
     private Waitlist() {
-    	//the actual waitlist (FIFO)
+    	waitlist = new PriorityQueue<MotelRoom>();
     }
 
     /**
-     * Create and/or return singleton instance of WaitList
+     * Create singleton instance of WaitList
+     * @return waitlist
      */
     public static synchronized Waitlist getList() {
-        if (list == null) list = new Waitlist();
+        if (list == null) {
+        	list = new Waitlist();
+        }
         return list;
     }
 
     /**
      * Adds a RoachColony to the WaitList
      */
-    public void add(RoachColony colony) {
-        waitlist.add(colony);
+    public void waitListAdd(MotelRoom room) {
+        waitlist.add(room);
     }
-
+    
+    public Queue<MotelRoom> getQueue() {
+    	return waitlist;
+    }
+  
     /**
-     * Receives update from RoachMotel and checks in a RoachColony if there is vacancy
+     * Receives update from RoachMotel and adds a RoachColony if there is vacancy
      */
     @Override
     public void update() {
-//        if (motel.getVacancy() && waitlist.size() > 0) {
-//        	motel.checkIn(waitlist.remove());
-//        }
+        if (motel.getVacancy() && waitlist.size() > 0) {
+        	motel.admit(waitlist.remove());
+        }
     }
 
     /**

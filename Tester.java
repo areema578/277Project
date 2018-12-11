@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class Tester {
 
 	public static void main(String[] args) {
-		RoachMotel rm = RoachMotel.getInstance();
-		rm.createRooms();
-		System.out.println(rm);
+		RoachMotel rMotel = RoachMotel.getInstance();
+		rMotel.createRooms();
+		System.out.println(rMotel);
 		ArrayList<String> amenities = new ArrayList<String>();
         amenities.add("Foodbar");
         amenities.add("Spa");
+        amenities.add("RefillFood");
+        amenities.add("Shower");
 
 		RoachColony colony1 = new RoachColony("1st Colony", 5, 0.5);
 		RoachColony colony2 = new RoachColony("2nd Colony", 10, 1.5);
@@ -19,14 +21,9 @@ public class Tester {
 		RoachColony colony5 = new RoachColony("5th Colony", 36, 2.0);
 		RoachColony colony6 = new RoachColony("6th Colony", 89, .30);
 		RoachColony colony7 = new RoachColony("7th Colony", 55, 0.75);
-		
-        RoachMotel rMotel = RoachMotel.getInstance();
-        rMotel.createRooms(); // creates rooms
+	
         rMotel.checkIn(colony1, "Suite", amenities);
-        
-        amenities.add("RefillFood");
-        amenities.add("Shower");
-        
+      
         rMotel.checkIn(colony2, "Deluxe", amenities);
         amenities.remove(3);
         rMotel.checkIn(colony3, "Regular", amenities);
@@ -35,20 +32,20 @@ public class Tester {
         amenities.remove(0);
         rMotel.checkIn(colony5, "Regular", amenities);
         
-        colony1.throwParty();
-        rMotel.sprayRoom(colony1);
+        rMotel.sprayRoom(colony2); //spray room
         
-        colony2.throwParty();
-        rMotel.sprayRoom(colony2);
-
-
-//        rMotel.checkOut(101);
-//        
-//        System.out.println(rMotel);
-
+        System.out.println(rMotel); //check available rooms
         
-//        rMotel.checkIn(colony6, "Regular", amenities);
-//        rMotel.checkIn(colony7, "Regular", amenities);
+        rMotel.checkOut(101); //check out based on room number
+        
+        System.out.println(rMotel);
+
+        rMotel.checkIn(colony6, "Regular", amenities);
+        System.out.println(rMotel);
+        
+        rMotel.checkIn(colony7, "Regular", amenities);
+        
+        rMotel.checkOut(105);
         
 	}
 	
