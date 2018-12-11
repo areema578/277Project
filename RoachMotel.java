@@ -2,18 +2,21 @@ package patternsProject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Queue;
 
 public class RoachMotel implements Subject { //simple locking
-	private ArrayList<Observer> observers;
-	private ArrayList<Integer> roomNumAv;
-	private HashMap<Integer, MotelRoom> rooms;
-	public RoomFactory roomFactory;
+	private ArrayList<Observer> observers = new ArrayList<>();
+	private ArrayList<Integer> roomNumAv = new ArrayList<Integer>();
+	private HashMap<Integer, MotelRoom> rooms = new HashMap<Integer, MotelRoom>();
+	private HashMap<RoachColony, Integer> guests = new HashMap<RoachColony, Integer>();
+	private HashMap<RoachColony, MotelRoom> ColonyRooms = new HashMap<RoachColony, MotelRoom>();
+	private RoomFactory roomFactory = new RoomFactory();
 	
 	private static Waitlist waitList;
 	
 	private boolean vacancy;
 	private boolean updated;
-	private int capacity;
+	private int capacity; 
 
 	private RoachMotel() {
 		observers = new ArrayList<Observer>(); //list of observers
@@ -48,41 +51,38 @@ public class RoachMotel implements Subject { //simple locking
 		roomNumAv.add(105);
 	}
 	
-	public void checkIn(RoachColony colony, String roomType, ArrayList<String> amenities[i].equals) {
-//		if(roomType.equals("Regular")) {
-//			MotelRoom room = new RegularRoom(colony, roomType, amenities, roomNum);
-//		}
-//		else if(roomType.equals("Deluxe")) {
-//			MotelRoom room = new DeluxeRoom(colony, roomType, amenities, roomNum);
-//		}else { //suite
-//			MotelRoom room = new SuiteRoom(colony, roomType, amenities, roomNum);
-//		}
+	public void checkIn(RoachColony colony, String roomType, ArrayList<String> amenities) {
+		if( roomNumAv.size() == 0) {
+			vacancy = false;
+		}
+		
 		if(vacancy) {
-			MotelRoom room = roomFactory.createRoom(roomType); //create the rooms based on input
-			rooms.put(roomNumAv.get(0), room);
+			
+			MotelRoom motelRoom = roomFactory.createRoom(roomType); //create the rooms based on input
+			rooms.put(roomNumAv.get(0), motelRoom);
 			roomNumAv.remove(0);
 			//cost per night (decorator for amenities)
-			System.out.println("Amenities: " + amenities + "\nCost per night: $" + room.getACost());
+			System.out.println("Amenities: " + amenities + "\nCost per night: $" + motelRoom.getcost());
+			
+			//adding ammenities to room description
 			for(int i = 0; i < amenities.size(); i++) {
-				if(amenities[i].equals("Shower")) {
-					newRoom = new Shower(newRoom);
+				if(amenities.get(i).equals("Shower")) {
+					motelRoom = new Shower(motelRoom);
 				}
-				else if(amenities[i].equals("Spa")) {
-					newRoom = new Spa(newRoom);
+				else if(amenities.get(i).equals("Spa")) {
+					motelRoom = new Spa(motelRoom);
 				}
-				else if(amenities[i].equals("FoodBar")) {
-					newRoom = new FoodBar(newRoom);
+				else if(amenities.get(i).equals("FoodBar")) {
+					motelRoom = new FoodBar(motelRoom);
 				}
-				else if(amenities[i].equals("Refill")) {
-					newRoom = new Refill(newRoom);
+				else if(amenities.get(i).equals("RefillFood")) {
+					motelRoom = new RefillFood(motelRoom);
 				}
 			}
-			if( roomNumAv.size() == 0) {
-				vacancy = false;
-			}
-		}
-		else {
-			System.out.println("Motel Rooms are booked, added "+ colony + "to waitlist" );
+			ColonyRooms.put(colony, motelRoom);
+		} else {
+			
+			System.out.println("Motel Rooms are booked, added "+ colony.getName() + " to waitlist" );
 			waitList.add(colony); //????
 		}
 		setVacancy(rooms.size() != capacity); //checks if the number of rooms taken equals capacity
@@ -147,8 +147,19 @@ public class RoachMotel implements Subject { //simple locking
 		notifyObservers();
 	}
 	
-//	public void sprayRoom(MotelRoom rm) {
-//		System.out.println("Sprayed " + colony.getName() );
-//		if(colony.getAmenities())
-//	}
+	public void sprayRoom(RoachColony colony) {
+		int pop = colony.getPopulation();
+		System.out.println("Sprayed " + colony.getName() );
+		if(ColonyRooms.get(colony).getDescription().contains("Shower")) {
+			pop -= pop * 0.25;
+			System.out.println("Room has a shower! Colony Population went from " 
+			+ colony.getPopulation() + " to " + pop );
+			colony.setPopulation(pop);
+		}else {
+			pop -= pop * 0.50;
+			System.out.println("Room does not have a shower! Colony Population went from: " 
+			+ colony.getPopulation() + "to " + pop );
+			colony.setPopulation(pop);
+		}
+	}
 }

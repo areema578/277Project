@@ -8,12 +8,10 @@ public class Tester {
 		RoachMotel rm = RoachMotel.getInstance();
 		rm.createRooms();
 		System.out.println(rm);
-		RoachColony rc1 = new RoachColony("First Colony", 100, 200);
 		ArrayList<String> amenities = new ArrayList<String>();
         amenities.add("Foodbar");
         amenities.add("Spa");
 
-        
 		RoachColony colony1 = new RoachColony("1st Colony", 5, 0.5);
 		RoachColony colony2 = new RoachColony("2nd Colony", 10, 1.5);
 		RoachColony colony3 = new RoachColony("3rd Colony", 25, 0.35);
@@ -24,10 +22,26 @@ public class Tester {
 		
         RoachMotel rMotel = RoachMotel.getInstance();
         rMotel.createRooms(); // creates rooms
+        rMotel.checkIn(colony1, "Suite", amenities);
         
-
         amenities.add("RefillFood");
         amenities.add("Shower");
+        
+        rMotel.checkIn(colony2, "Deluxe", amenities);
+        amenities.remove(3);
+        rMotel.checkIn(colony3, "Regular", amenities);
+        amenities.remove(2);
+        rMotel.checkIn(colony4, "Regular", amenities);
+        amenities.remove(0);
+        rMotel.checkIn(colony5, "Regular", amenities);
+        
+        rMotel.sprayRoom(colony2);
+        
+
+        
+//        rMotel.checkIn(colony6, "Regular", amenities);
+//        rMotel.checkIn(colony7, "Regular", amenities);
+        
 	}
 	
 }

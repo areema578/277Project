@@ -8,10 +8,10 @@ public class Waitlist implements Observer {
 
     private static RoachMotel motel;
 
-    private Queue<MotelRoom> waitlist;
+    private Queue<RoachColony> waitlist;
 
     private Waitlist() {
-        waitlist = new Queue<>(); //the actual waitlist (FIFO)
+    	//the actual waitlist (FIFO)
     }
 
     /**
@@ -25,8 +25,8 @@ public class Waitlist implements Observer {
     /**
      * Adds a RoachColony to the WaitList
      */
-    public void add(MotelRoom room) {
-        waitlist.add(room);
+    public void add(RoachColony colony) {
+        waitlist.add(colony);
     }
 
     /**
@@ -34,9 +34,9 @@ public class Waitlist implements Observer {
      */
     @Override
     public void update() {
-        if (motel.getVacancy() && waitlist.size() > 0) {
-        	motel.checkIn(waitlist.remove());
-        }
+//        if (motel.getVacancy() && waitlist.size() > 0) {
+//        	motel.checkIn(waitlist.remove());
+//        }
     }
 
     /**

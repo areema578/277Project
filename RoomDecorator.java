@@ -4,7 +4,7 @@ public abstract class RoomDecorator extends MotelRoom {
 	
 	protected MotelRoom motel;
 	
-	public RoomDecorator(MotelRoom motel)
+	public RoomDecorator()
 	{
 		this.motel = motel;
 	}

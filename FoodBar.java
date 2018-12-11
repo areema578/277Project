@@ -36,6 +36,12 @@ public class FoodBar extends Amenity{
 	{
 		return super.getACost();
 	}
+
+	@Override
+	public double getcost() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 
