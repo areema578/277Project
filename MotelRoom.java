@@ -7,12 +7,12 @@ public abstract class MotelRoom {
 	private String type = "";
 	private double cost = 0;
 	private RoachColony roachColony;
-	private ArrayList<Ammenities> ammenities = null;
-	private int roomNumber = null;
+	private ArrayList<Amenity> ammenities = null;
+	private int roomNumber = -1;
 	
 	
 	public MotelRoom(RoachColony roachColony, 
-			String type, ArrayList<Ammenity> ammenities,
+			String type, ArrayList<Amenity> ammenities,
 			int roomNumber) {
 		
 		this.roachColony = roachColony;
@@ -22,6 +22,7 @@ public abstract class MotelRoom {
 	}
 	
 	public double getCost() {
+		return cost;
 	}
 	
 }
