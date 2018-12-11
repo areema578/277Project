@@ -41,6 +41,8 @@ public class Shower extends Amenity{
 		return room.getcost() + cost;
 	}
 	
-	
+	public String toString() {
+		return null;
+	}
 
 }

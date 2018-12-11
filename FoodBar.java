@@ -28,22 +28,16 @@ public class FoodBar extends Amenity{
 		return room.getDescription() + "Food Bar";
 	}
 	
-	/**
-	 * Getter method for cost variable.
-	 */
-	public double getACost()
-	{
-		return super.getACost();
-	}
 
 	@Override
+	/**
+	 * method that gets total cost of room + amenity
+	 */
 	public double getcost() {
 		// TODO Auto-generated method stub
 		return room.getcost() + cost;
 	}
 	
-	
-
 	public String toString() {
 		return null;
 	}

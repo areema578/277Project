@@ -35,7 +35,7 @@ public abstract class Amenity extends MotelRoom {
 	public String description = "unknown amenity";
 	
 	/**
-	 * getter methor for description
+	 * getter method for description
 	 * @returns string description of decorator
 	 */
 	public abstract String getDescription();
