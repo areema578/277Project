@@ -1,7 +1,13 @@
+/**	 Scott Arima, Howard Chenn, Riley Haldeman, Joshua Hernandez
+     December 6, 2018
+     Purpose: Food Bar refill amenity
+     Inputs: cost of amenity
+     Outputs: 
+*/
 package patternsProject;
 
 public class RefillFood extends Amenity{
-
+	MotelRoom room;
 	public RefillFood(MotelRoom motel) {
 		super(motel);
 		
@@ -22,7 +28,7 @@ public class RefillFood extends Amenity{
 
 	public double getcost() {
 		// TODO Auto-generated method stub
-		return cost;
+		return room.getcost() + cost;
 	}
 	
 	

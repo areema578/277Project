@@ -7,14 +7,14 @@
 package patternsProject;
 
 public class Shower extends Amenity{
-
+	MotelRoom room;
 	/**
 	 * Constructor for Shower Decorator, cost is set to 25.0
 	 * @param motel is parent object being passed to Amenity Parent object
 	 */
-	public Shower(MotelRoom motel) 
+	public Shower(MotelRoom room) 
 	{
-		super(motel);
+		super(room);
 		
 		cost = 25.0;
 	}
@@ -24,7 +24,7 @@ public class Shower extends Amenity{
 	 */
 	public String getDescription()
 	{
-		return motel.getDescription() + "Shower";
+		return room.getDescription() + "Shower";
 	}
 	
 	/**
@@ -38,7 +38,7 @@ public class Shower extends Amenity{
 	@Override
 	public double getcost() {
 		// TODO Auto-generated method stub
-		return 0;
+		return room.getcost() + cost;
 	}
 	
 	

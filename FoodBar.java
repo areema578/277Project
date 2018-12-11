@@ -9,14 +9,13 @@
 package patternsProject;
 
 public class FoodBar extends Amenity{
-
+	MotelRoom room;
 	/**
 	 * Constructor for Food Bar, cost is set to 10.0
 	 * @param motel is parent object being passed to Amenity Parent object
 	 */
-	public FoodBar(MotelRoom motel) {
-		super(motel);
-		
+	public FoodBar(MotelRoom room) {
+		super(room);
 		cost = 10.0;
 		// TODO Auto-generated constructor stub
 	}
@@ -26,7 +25,7 @@ public class FoodBar extends Amenity{
 	 */
 	public String getDescription()
 	{
-		return motel.getDescription() + "Food Bar";
+		return room.getDescription() + "Food Bar";
 	}
 	
 	/**
@@ -40,7 +39,7 @@ public class FoodBar extends Amenity{
 	@Override
 	public double getcost() {
 		// TODO Auto-generated method stub
-		return 0;
+		return room.getcost() + cost;
 	}
 	
 	
