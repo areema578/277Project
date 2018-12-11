@@ -12,8 +12,7 @@ public class Tester {
 		ArrayList<String> amenities = new ArrayList<String>();
         amenities.add("Foodbar");
         amenities.add("Spa");
-        amenities.add("RefillFood");
-        amenities.add("Shower");
+
         
 		RoachColony colony1 = new RoachColony("1st Colony", 5, 0.5);
 		RoachColony colony2 = new RoachColony("2nd Colony", 10, 1.5);
@@ -25,9 +24,10 @@ public class Tester {
 		
         RoachMotel rMotel = RoachMotel.getInstance();
         rMotel.createRooms(); // creates rooms
-        amenities.add("FoodBar");
-        rMotel.checkIn(colony1, "Regular", amenities);
+        
 
+        amenities.add("RefillFood");
+        amenities.add("Shower");
 	}
 	
 }
