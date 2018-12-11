@@ -47,7 +47,7 @@ public class RoachMotel implements Subject { //simple locking
 		roomNumAv.add(105);
 	}
 	
-	public void checkIn(RoachColony colony, String roomType, ArrayList<Amenities> amenities) {
+	public void checkIn(RoachColony colony, String roomType, ArrayList<Amenity> amenities) {
 //		if(roomType.equals("Regular")) {
 //			MotelRoom room = new RegularRoom(colony, roomType, amenities, roomNum);
 //		}
